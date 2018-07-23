@@ -8,16 +8,22 @@ import com.rest.core.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository repository;
 
-    public void delete(Long id) {
-        repository.delete(id);
+    public long create(CreateStudentParameter params) {
+        Student student = new Student();
+        student.setfName(params.getfName());
+        student.setlName(params.getlName());
+        student.setAge(params.getAge());
+        return repository.saveAndFlush(student).getId();
     }
-
 
     public StudentDTO get(Long id) {
         Student student = repository.findOne(id);
@@ -30,11 +36,29 @@ public class StudentServiceImpl implements StudentService {
         return studentDTO;
     }
 
-    public long create(CreateStudentParameter params) {
-        Student student = new Student();
+    public void delete(Long id) {
+        repository.delete(id);
+    }
+
+    public void update(Long id, CreateStudentParameter params) {
+        Student student = repository.getOne(id);
         student.setfName(params.getfName());
         student.setlName(params.getlName());
         student.setAge(params.getAge());
-        return repository.saveAndFlush(student).getId();
+        repository.save(student);
+    }
+
+    public List<StudentDTO> findAll() {
+        List<Student> students = repository.findAll();
+        List<StudentDTO> studentsDTO = new ArrayList<StudentDTO>();
+        for (Student student : students) {
+            StudentDTO studentDTO = new StudentDTO();
+            studentDTO.setId(student.getId());
+            studentDTO.setfName(student.getfName());
+            studentDTO.setlName(student.getlName());
+            studentDTO.setAge(student.getAge());
+            studentsDTO.add(studentDTO);
+        }
+        return studentsDTO;
     }
 }

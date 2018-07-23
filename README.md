@@ -1,20 +1,26 @@
-## HI THERE GENERAL KENOBI!
+## HELLO THERE GENERAL KENOBI!
 
-To run this you will be needed
+First things first. This is web application. Indeed it is. It's suppose to be some kind of registry app to manage students courses and group. 
+
+To run this you will be needed:
 
 - Java 1.8
 - Maven
 - MySQL
 
-Technologies i used in this project:
+Technologies stack i used in this project:
 - Spring boot
+- Spring IoC\DI
 - JPA
 - Hibernate
 - Swagger
-- REST
+- REST API
+- Feign
 - Maven
 - MySQL
 
 Main class: rest-core/src/main/java/com/rest/core/App
 
 Main page: http://localhost:15000/swagger-ui.html#/
+
+(!) Careful with new entities(Course and Group) they might be not perfect

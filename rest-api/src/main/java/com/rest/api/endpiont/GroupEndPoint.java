@@ -1,8 +1,8 @@
 package com.rest.api.endpiont;
 
-import com.rest.api.dto.StudentDTO;
+import com.rest.api.dto.GroupDTO;
 import com.rest.api.request.GeneralRequest;
-import com.rest.api.request.parameters.CreateStudentParameter;
+import com.rest.api.request.parameters.CreateGroupParameter;
 import com.rest.api.response.GeneralResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @SwaggerDefinition(
         info = @Info(
@@ -25,58 +23,50 @@ import java.util.List;
         schemes =   SwaggerDefinition.Scheme.HTTPS
 )
 @Api(
-        tags =      "Students",
+        tags =      "Groups",
         produces =  MediaType.APPLICATION_JSON_UTF8_VALUE,
         protocols = "https"
 )
-@RequestMapping("/view/students")
-public interface StudentEndpoint {
+@RequestMapping("/view/groups")
+public interface GroupEndPoint {
 
-    @ApiOperation(value = "Student record create")
+    @ApiOperation(value = "Group record create")
     @RequestMapping(
             value = "/create",
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,  /** Создание студента */
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
             method = RequestMethod.POST
     )
     GeneralResponse<Long> createStudent(
-            GeneralRequest<CreateStudentParameter> params);
+            GeneralRequest<CreateGroupParameter> params);
 
-    @ApiOperation(value = "Student record delete")
-    @RequestMapping(
-            value = "/delete",
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            method = RequestMethod.DELETE)
-    GeneralResponse<Void> deleteStudent(
-            @RequestParam("studentId") Long studentId);
-
-
-    @ApiOperation(value = "Student record get by ID")
+    @ApiOperation(value = "Group record get by ID")
     @RequestMapping(
             value = "/get",
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            method = RequestMethod.GET)
-    GeneralResponse<StudentDTO> getStudent(
-            @RequestParam("studentId") Long studentId
+            method = RequestMethod.GET
+    )
+    GeneralResponse<GroupDTO> getGroup(
+            @RequestParam("groupId") Long groupId
     );
 
-    @ApiOperation(value = "Student record update")
+    @ApiOperation(value = "Group record update")
     @RequestMapping(
             value = "/update",
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
             method = RequestMethod.PUT
     )
-    GeneralResponse<Void> updateStudent(
-            @RequestParam("studentId") Long studentId, GeneralRequest<CreateStudentParameter> params);
+    GeneralResponse<Void> updateGroup(
+            @RequestParam("groupId") Long groupId, GeneralRequest<CreateGroupParameter> params
+    );
 
-    @ApiOperation(value = "Student record getAll")
+
+    @ApiOperation(value = "Group record delete by ID")
     @RequestMapping(
-            value = "/getAll",
+            value = "/delete",
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
-            method = RequestMethod.GET)
-    GeneralResponse<List<StudentDTO>> getAllStudents();
-
-
-
+            method = RequestMethod.DELETE
+    )
+    GeneralResponse<Void> deleteGroup(
+            @RequestParam("groupId") Long groupId
+    );
 }
-
-

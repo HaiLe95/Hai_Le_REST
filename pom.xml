@@ -18,6 +18,7 @@
         <module>rest-api</module>
         <!-- Rest CORE - ядро с реализацией функционала API-->
         <module>rest-core</module>
+        <module>rest-front</module>
     </modules>
 
 </project>

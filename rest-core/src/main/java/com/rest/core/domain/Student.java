@@ -21,6 +21,16 @@ public class Student {
     @Column
     private Integer age;
 
+//    @ManyToOne (
+//            fetch = FetchType.EAGER,
+//            targetEntity = Group.class
+//    )
+//    @JoinColumn(
+//            name = "GROUP_ID",
+//            nullable = false
+//    )
+//    private Group groupId;
+
     public Student() {}
 
     public Student(String fName, String lName, Integer age) {
@@ -37,14 +47,10 @@ public class Student {
     public void setlName(String lName) { this.lName = lName; }
     public Integer getAge() { return age; }
     public void setAge(Integer age) { this.age = age; }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("Student");
-        sb.append("\nID :").append(id);
-        sb.append("\nName :").append(fName);
-        sb.append("\nSurname :").append(lName);
-        sb.append("\nAge :").append(age);
-        return "";
-    }
+//    public Group getGroupId() {
+//        return groupId;
+//    }
+//    public void setGroupId(Group groupId) {
+//        this.groupId = groupId;
+//    }
 }
