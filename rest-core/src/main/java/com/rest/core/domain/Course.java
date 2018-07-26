@@ -27,13 +27,13 @@ public class Course implements Serializable {
     private String title;
 
 
-//    @OneToMany(
-//            fetch = FetchType.EAGER,
-//            mappedBy = "courseId",
-//            cascade = { CascadeType.REMOVE },
-//            targetEntity = Group.class
-//    )
-//    private List<Group> groups = new ArrayList();
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            mappedBy = "courseId",
+            cascade = { CascadeType.REMOVE },
+            targetEntity = Group.class
+    )
+    private List<Group> groups = new ArrayList();
 
     public Course() {}
     public Course(String title) {
@@ -52,10 +52,10 @@ public class Course implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
-//    public List<Group> getGroups() {
-//        return groups;
-//    }
-//    public void setGroups(List<Group> groups) {
-//        this.groups = groups;
-//    }
+    public List<Group> getGroups() {
+        return groups;
+    }
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
 }

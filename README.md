@@ -23,4 +23,11 @@ Main class: rest-core/src/main/java/com/rest/core/App
 
 Main page: http://localhost:15000/swagger-ui.html#/
 
-(!) Careful with new entities(Course and Group) they might be not perfect
+##Patch-note
+(!) 0.1 
+
+        Students and Groups are not usable, please wait for updates.(added ManyToOne mapping but still did not realize it's method)
+    
+        Client(rest-front) still in progress. I was planning of finish rest-core\api module first.
+    
+asd
