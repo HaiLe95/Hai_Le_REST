@@ -21,15 +21,15 @@ public class Student {
     @Column
     private Integer age;
 
-//    @ManyToOne (
-//            fetch = FetchType.EAGER,
-//            targetEntity = Group.class
-//    )
-//    @JoinColumn(
-//            name = "GROUP_ID",
-//            nullable = false
-//    )
-//    private Group groupId;
+    @ManyToOne (
+            fetch = FetchType.EAGER,
+            targetEntity = Group.class
+    )
+    @JoinColumn(
+            name = "GROUP_ID",
+            nullable = false
+    )
+    private Group groupId;
 
     public Student() {}
 
@@ -47,10 +47,10 @@ public class Student {
     public void setlName(String lName) { this.lName = lName; }
     public Integer getAge() { return age; }
     public void setAge(Integer age) { this.age = age; }
-//    public Group getGroupId() {
-//        return groupId;
-//    }
-//    public void setGroupId(Group groupId) {
-//        this.groupId = groupId;
-//    }
+    public Group getGroupId() {
+        return groupId;
+    }
+    public void setGroupId(Group groupId) {
+        this.groupId = groupId;
+    }
 }

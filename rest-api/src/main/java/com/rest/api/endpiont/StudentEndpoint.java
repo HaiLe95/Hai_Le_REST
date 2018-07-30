@@ -17,7 +17,7 @@ import java.util.List;
 
 @SwaggerDefinition(
         info = @Info(
-                description =   "Rest API",     /** подключение RESTа */
+                description =   "Rest API",
                 version =       "1.0.0",
                 title =         "Rest API"
         ),
@@ -35,11 +35,11 @@ public interface StudentEndpoint {
     @ApiOperation(value = "Student record create")
     @RequestMapping(
             value = "/create",
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,  /** Создание студента */
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
             method = RequestMethod.POST
     )
     GeneralResponse<Long> createStudent(
-            GeneralRequest<CreateStudentParameter> params);
+            GeneralRequest<CreateStudentParameter> params, @RequestParam("groupId") long groupMappingId);
 
     @ApiOperation(value = "Student record delete")
     @RequestMapping(
@@ -66,7 +66,7 @@ public interface StudentEndpoint {
             method = RequestMethod.PUT
     )
     GeneralResponse<Void> updateStudent(
-            @RequestParam("studentId") Long studentId, GeneralRequest<CreateStudentParameter> params);
+            @RequestParam("studentId") Long studentId, GeneralRequest<CreateStudentParameter> params, long groupMappingId);
 
     @ApiOperation(value = "Student record getAll")
     @RequestMapping(

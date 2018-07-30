@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @SwaggerDefinition(
         info = @Info(
-                description =   "Rest API",     /** подключение RESTа */
+                description =   "Rest API",
                 version =       "1.0.0",
                 title =         "Rest API"
         ),
@@ -37,7 +37,7 @@ public interface GroupEndPoint {
             method = RequestMethod.POST
     )
     GeneralResponse<Long> createStudent(
-            GeneralRequest<CreateGroupParameter> params);
+            GeneralRequest<CreateGroupParameter> params, @RequestParam("courseId") Long courseMappingId);
 
     @ApiOperation(value = "Group record get by ID")
     @RequestMapping(
@@ -56,8 +56,8 @@ public interface GroupEndPoint {
             method = RequestMethod.PUT
     )
     GeneralResponse<Void> updateGroup(
-            @RequestParam("groupId") Long groupId, GeneralRequest<CreateGroupParameter> params
-    );
+            @RequestParam("groupId") Long groupId,
+            GeneralRequest<CreateGroupParameter> params, @RequestParam("courseId") Long courseMappingId);
 
 
     @ApiOperation(value = "Group record delete by ID")

@@ -16,8 +16,8 @@ public class GroupRestEndPoint implements GroupEndPoint {
     @Autowired
     private GroupService service;
 
-    public GeneralResponse<Long> createStudent(@RequestBody GeneralRequest<CreateGroupParameter> params) {
-        return new GeneralResponse<Long>("200", service.create(params.getParameters()));
+    public GeneralResponse<Long> createStudent(@RequestBody GeneralRequest<CreateGroupParameter> params, Long courseMappingId) {
+        return new GeneralResponse<Long>("200", service.create(params.getParameters(), courseMappingId));
     }
 
     public GeneralResponse<GroupDTO> getGroup(Long groupId) {
@@ -25,8 +25,8 @@ public class GroupRestEndPoint implements GroupEndPoint {
         return new GeneralResponse<GroupDTO>("200", service.get(groupId));
     }
 
-    public GeneralResponse<Void> updateGroup(Long groupId, GeneralRequest<CreateGroupParameter> params) {
-        service.update(groupId, params.getParameters());
+    public GeneralResponse<Void> updateGroup(Long groupId, GeneralRequest<CreateGroupParameter> params, Long courseMappingId) {
+        service.update(groupId, params.getParameters(), courseMappingId);
         return new GeneralResponse<Void>("200", null);
     }
 

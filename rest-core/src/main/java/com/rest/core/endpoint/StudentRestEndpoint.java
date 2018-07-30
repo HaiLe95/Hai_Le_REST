@@ -19,8 +19,8 @@ public class StudentRestEndpoint implements StudentEndpoint {
     private StudentService service;
 
     public GeneralResponse<Long> createStudent(
-            @RequestBody GeneralRequest<CreateStudentParameter> params) {
-        return new GeneralResponse<Long>("200", service.create(params.getParameters()));
+            @RequestBody GeneralRequest<CreateStudentParameter> params, long groupMappingId) {
+        return new GeneralResponse<Long>("200", service.create(params.getParameters(), groupMappingId));
     }
 
     public GeneralResponse<StudentDTO> getStudent(Long studentId) {
@@ -29,8 +29,8 @@ public class StudentRestEndpoint implements StudentEndpoint {
     }
 
     public GeneralResponse<Void> updateStudent(Long studentId,
-                                               @RequestBody GeneralRequest<CreateStudentParameter> params) {
-        service.update(studentId, params.getParameters());
+                                               @RequestBody GeneralRequest<CreateStudentParameter> params, long groupMappingId) {
+        service.update(studentId, params.getParameters(), groupMappingId);
         return new GeneralResponse<Void>("200", null);
     }
 

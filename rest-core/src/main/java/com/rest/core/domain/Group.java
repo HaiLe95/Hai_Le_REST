@@ -13,7 +13,7 @@ public class Group {
     @SequenceGenerator(
             name = "groupId",
             sequenceName = "SEQ_GROUP_ID",
-            initialValue = 2018000,
+            initialValue = 1,
             allocationSize = 25
     )
     @GeneratedValue(

@@ -14,7 +14,7 @@ public class Course implements Serializable {
     @SequenceGenerator(
             name = "courseId",
             sequenceName = "SEQ_COURSE_ID",
-            initialValue = 100000,
+            initialValue = 1,
             allocationSize = 50
     )
     @GeneratedValue(

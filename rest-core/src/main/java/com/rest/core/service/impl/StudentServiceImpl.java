@@ -2,7 +2,9 @@ package com.rest.core.service.impl;
 
 import com.rest.api.dto.StudentDTO;
 import com.rest.api.request.parameters.CreateStudentParameter;
+import com.rest.core.dao.GroupRepository;
 import com.rest.core.dao.StudentRepository;
+import com.rest.core.domain.Group;
 import com.rest.core.domain.Student;
 import com.rest.core.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +19,18 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository repository;
 
-    public long create(CreateStudentParameter params) {
+    @Autowired
+    private GroupRepository groupRepository;
+
+    public long create(CreateStudentParameter params, long groupMappingId) {
         Student student = new Student();
         student.setfName(params.getfName());
         student.setlName(params.getlName());
         student.setAge(params.getAge());
+
+        Group group = groupRepository.getOne(groupMappingId);
+        group.getStudents().add(student);
+
         return repository.saveAndFlush(student).getId();
     }
 
@@ -40,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
         repository.delete(id);
     }
 
-    public void update(Long id, CreateStudentParameter params) {
+    public void update(Long id, CreateStudentParameter params, long groupId) {
         Student student = repository.getOne(id);
         student.setfName(params.getfName());
         student.setlName(params.getlName());

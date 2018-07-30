@@ -13,12 +13,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- Rest API - интерфейс который мы отдаем пользователю
-                        для подключения API в проект-->
+        <!-- Rest API - the interface which user gets while working with app-->
         <module>rest-api</module>
-        <!-- Rest CORE - ядро с реализацией функционала API-->
+        <!-- Rest CORE - the core of main API-->
         <module>rest-core</module>
-        <module>rest-front</module>
     </modules>
 
 </project>

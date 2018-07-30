@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface GroupService {
 
-    long create(CreateGroupParameter params);
+    long create(CreateGroupParameter params, Long courseMappingId);
 
     GroupDTO get(Long id);
 
     void delete(Long id);
 
-    void update(Long id, CreateGroupParameter params);
+    void update(Long id, CreateGroupParameter params, Long courseMappingId);
 
     List<GroupDTO> findAll();
 
