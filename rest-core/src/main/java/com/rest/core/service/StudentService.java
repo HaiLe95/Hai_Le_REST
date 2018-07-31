@@ -13,7 +13,7 @@ public interface StudentService {
 
     void delete(Long id);
 
-    void update(Long id, CreateStudentParameter params, long groupId);
+    void update(Long id, CreateStudentParameter params);
 
     List<StudentDTO> findAll();
 }

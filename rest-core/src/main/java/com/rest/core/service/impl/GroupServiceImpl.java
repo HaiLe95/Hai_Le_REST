@@ -49,12 +49,9 @@ public class GroupServiceImpl implements GroupService {
         repository.delete(id);
     }
 
-
-    /** TODO CHECK FUCKING UPDATE METHODS IN GROUP AND STUDENTS */
-    public void update(Long id, CreateGroupParameter params, Long courseMappingId) {
+    public void update(Long id, CreateGroupParameter params) {
         Group group = repository.getOne(id);
         group.setTitle(params.getTitle());
-        group.setCourseId(courseRepository.getOne(courseMappingId));
         repository.save(group);
         repository.flush();
     }

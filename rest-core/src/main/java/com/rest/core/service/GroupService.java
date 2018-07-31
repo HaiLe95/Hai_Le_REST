@@ -13,7 +13,7 @@ public interface GroupService {
 
     void delete(Long id);
 
-    void update(Long id, CreateGroupParameter params, Long courseMappingId);
+    void update(Long id, CreateGroupParameter params);
 
     List<GroupDTO> findAll();
 

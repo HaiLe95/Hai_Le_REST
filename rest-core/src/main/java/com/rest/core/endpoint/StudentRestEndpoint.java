@@ -29,8 +29,8 @@ public class StudentRestEndpoint implements StudentEndpoint {
     }
 
     public GeneralResponse<Void> updateStudent(Long studentId,
-                                               @RequestBody GeneralRequest<CreateStudentParameter> params, long groupMappingId) {
-        service.update(studentId, params.getParameters(), groupMappingId);
+                                               @RequestBody GeneralRequest<CreateStudentParameter> params) {
+        service.update(studentId, params.getParameters());
         return new GeneralResponse<Void>("200", null);
     }
 

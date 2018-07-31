@@ -66,7 +66,7 @@ public interface StudentEndpoint {
             method = RequestMethod.PUT
     )
     GeneralResponse<Void> updateStudent(
-            @RequestParam("studentId") Long studentId, GeneralRequest<CreateStudentParameter> params, long groupMappingId);
+            @RequestParam("studentId") Long studentId, GeneralRequest<CreateStudentParameter> params);
 
     @ApiOperation(value = "Student record getAll")
     @RequestMapping(

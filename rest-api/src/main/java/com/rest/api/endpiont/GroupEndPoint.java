@@ -57,7 +57,7 @@ public interface GroupEndPoint {
     )
     GeneralResponse<Void> updateGroup(
             @RequestParam("groupId") Long groupId,
-            GeneralRequest<CreateGroupParameter> params, @RequestParam("courseId") Long courseMappingId);
+            GeneralRequest<CreateGroupParameter> params);
 
 
     @ApiOperation(value = "Group record delete by ID")

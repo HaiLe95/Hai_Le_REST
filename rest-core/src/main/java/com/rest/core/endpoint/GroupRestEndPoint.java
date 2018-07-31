@@ -25,8 +25,8 @@ public class GroupRestEndPoint implements GroupEndPoint {
         return new GeneralResponse<GroupDTO>("200", service.get(groupId));
     }
 
-    public GeneralResponse<Void> updateGroup(Long groupId, GeneralRequest<CreateGroupParameter> params, Long courseMappingId) {
-        service.update(groupId, params.getParameters(), courseMappingId);
+    public GeneralResponse<Void> updateGroup(Long groupId, GeneralRequest<CreateGroupParameter> params) {
+        service.update(groupId, params.getParameters());
         return new GeneralResponse<Void>("200", null);
     }
 

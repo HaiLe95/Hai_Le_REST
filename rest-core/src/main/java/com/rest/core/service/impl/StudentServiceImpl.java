@@ -49,12 +49,13 @@ public class StudentServiceImpl implements StudentService {
         repository.delete(id);
     }
 
-    public void update(Long id, CreateStudentParameter params, long groupId) {
+    public void update(Long id, CreateStudentParameter params) {
         Student student = repository.getOne(id);
         student.setfName(params.getfName());
         student.setlName(params.getlName());
         student.setAge(params.getAge());
         repository.save(student);
+        repository.flush();
     }
 
     public List<StudentDTO> findAll() {
