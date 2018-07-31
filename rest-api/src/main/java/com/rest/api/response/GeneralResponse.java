@@ -1,13 +1,5 @@
 package com.rest.api.response;
 
-
-/**
- * Общий вариант ответа Api
- *
- * @param <T> payLoad в зависимости от результатавыполнения запроса может возвращать какой-то
- *           результат, или может быть NULL
- */
-
 public class GeneralResponse<T> {
 
     private String code;

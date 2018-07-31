@@ -1,9 +1,5 @@
 package com.rest.api.dto;
 
-/** DTO - DATA-TRANSFER-OBJECT - основное назначение это
- *                          безопасная передача данных для Front-end
- * */
-
 public class StudentDTO {
 
     private Long id;
