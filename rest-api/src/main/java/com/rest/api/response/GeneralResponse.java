@@ -1,6 +1,6 @@
 package com.rest.api.response;
 
-public class GeneralResponse<T> {
+public class GeneralResponse<T>  {
 
     private String code;
 

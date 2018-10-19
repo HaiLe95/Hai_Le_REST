@@ -17,6 +17,8 @@
         <module>rest-api</module>
         <!-- Rest CORE - the core of main API-->
         <module>rest-core</module>
+        <!-- Rest CLIENT - front-end interface -->
+        <module>rest-client</module>
     </modules>
 
 </project>

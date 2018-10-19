@@ -1,11 +1,9 @@
 package com.rest.core.endpoint;
 
 import com.rest.api.dto.CourseDTO;
-import com.rest.api.dto.GroupDTO;
 import com.rest.api.endpiont.CourseEndPoint;
 import com.rest.api.request.GeneralRequest;
 import com.rest.api.request.parameters.CreateCourseParameter;
-import com.rest.api.request.parameters.CreateGroupParameter;
 import com.rest.api.response.GeneralResponse;
 import com.rest.core.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;

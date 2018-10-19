@@ -11,7 +11,7 @@ To run this you will be needed:
 - Maven
 - MySQL
 
-Technologies stack i used in this project:
+Technologies stack I used in this project:
 - Spring boot
 - Spring IoC\DI
 - JPA
@@ -35,7 +35,7 @@ Main page: http://localhost:15000/swagger-ui.html#/
     
 0.2 
         
-        (!)Client was deleted from project, following the architecture rules. Added methods for GROUP and STUDENT services.
+        
         
         
         

@@ -45,7 +45,15 @@ public class GroupServiceImpl implements GroupService {
         return groupDTO;
     }
 
+    /**TODO Check up this method */
     public void delete(Long id) {
+        Group group = repository.getOne(id);
+        Course course = courseRepository.getOne(group.getCourseId().getId());
+        for(Group g : course.getGroups()) {
+            if(g.getId() == id) {
+                course.getGroups().remove(g);
+            }
+        }
         repository.delete(id);
     }
 
